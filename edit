@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[[ ! $1 ]] && { echo "Missing argument" >&2; exit 1; }
+
+scriptname="$1"
+bindir="${HOME}/.bin"
+filename="${bindir}/$scriptname"
+
+[[ ! -e "$filename" ]] && { echo "no such command ${scriptname}" >&2; exit 1; }
+
+vim "$filename";
+exit 0

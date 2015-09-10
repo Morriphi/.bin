@@ -1,0 +1,4 @@
+#!/bin/bash
+echo Custom Commands:
+echo
+ls -la ${HOME}/.bin | grep '^[^d]' | grep -v '[0-9]*_deleted$' | grep '\(\s[a-z]*$\)'

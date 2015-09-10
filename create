@@ -1,0 +1,19 @@
+#!/bin/bash
+
+[[ ! $1 ]] && { echo "Missing argument" >&2; exit 1; }
+
+scriptname="$1"
+bindir="${HOME}/.bin"
+filename="${bindir}/$scriptname"
+
+type $scriptname && { echo "Command $scriptname already exists" >&2; exit 1; }
+
+[[ -e $filename ]] && { echo "Script $filename already exists"; exit 1; }
+
+echo "#!/bin/bash" > "$filename"
+chmod u+x "$filename"
+
+vim "$filename"
+
+echo "new script ${scriptname} created"
+exit 0
